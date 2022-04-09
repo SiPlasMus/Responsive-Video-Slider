@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Responsive Video Slider Website</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<section>
+
+		<div class="bannerVideo" id="slideShow">
+			<video src="tokyo.mp4" autoplay muted loop class="active"></video>
+			<video src="paris.mp4" autoplay muted loop></video>
+			<video src="egypt.mp4" autoplay muted loop></video>
+			<video src="maldives.mp4" autoplay muted loop></video>
+		</div>
+
+		<div class="container">
+			<header id="navbar">
+				<a href="#" class="logo">World</a>
+				<ul>
+					<li><a href="#" class="active">Home</a></li>
+					<li><a href="#">Destination</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</header>
+			<div class="content">
+				<div class="bannerText" id="slideShowText">
+					<div class="active">
+						<h2>Tokyo</h2>
+						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias labore vel fugit recusandae ducimus quisquam perspiciatis, est deserunt, id soluta doloremque, iusto iste. Fugiat omnis nihil autem eveniet aperiam quis?</p>
+					</div>
+					<div>
+						<h2>Paris</h2>
+						<p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Accusantium laudantium, deserunt eius aliquid, mollitia voluptatibus ad, explicabo quaerat laboriosam delectus possimus? Culpa accusantium, laboriosam nisi ipsa quasi molestias, animi iste?</p>
+					</div>
+					<div>
+						<h2>Egypt</h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Corrupti odio odit totam eum tenetur alias quisquam vitae optio officia sint vel distinctio rerum nisi, aperiam molestiae corporis. Temporibus, debitis, labore.</p>
+					</div>
+					<div>
+						<h2>Maldives</h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias iste tempora, placeat incidunt obcaecati, vel error repellendus porro perferendis excepturi quidem libero dicta, repudiandae, laboriosam dolor eius temporibus quaerat ex!</p>
+					</div>
+				</div>
+				<ul class="sci">
+					<li><a href="#"><img src="facebook.png" alt=""></a></li>
+					<li><a href="#"><img src="twitter.png" alt=""></a></li>
+					<li><a href="#"><img src="instagram.png" alt=""></a></li>
+				</ul>
+
+				<ul class="controls">
+					<li onclick="prevSlide();prevSlideText();"><img src="left.png" alt=""></li>
+					<li onclick="nextSlide();nextSlideText();"><img src="right.png" alt=""></li>
+				</ul>
+
+			</div>
+		</div>
+	</section>
+
+
+<script>
+	const sliderShow = document.getElementById('slideShow');
+	const slides = sliderShow.getElementsByTagName('video');
+	var index = 0;
+	function nextSlide() {
+		slides[index].classList.remove('active');
+		index = (index + 1) % slides.length;
+		slides[index].classList.add('active');
+	}
+	function prevSlide() {
+		slides[index].classList.remove('active');
+		index = (index - 1 + slides.length) % slides.length;
+		slides[index].classList.add('active');
+	}
+
+	const slideShowText = document.getElementById('slideShowText');
+	const slidesText = slideShowText.getElementsByTagName('div');
+	var i = 0;
+	function nextSlideText() {
+		slidesText[i].classList.remove('active');
+		i = (i + 1) % slidesText.length;
+		slidesText[i].classList.add('active');
+	}
+	function prevSlideText() {
+		slidesText[i].classList.remove('active');
+		i = (i - 1 + slidesText.length) % slidesText.length;
+		slidesText[i].classList.add('active');
+	}
+
+
+</script>
+
+</body>
+</html>
